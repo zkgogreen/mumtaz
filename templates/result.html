@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+    <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#training">Training</a></li>
+    <li class="nav-item"><a class="nav-link" href="#arima">Arima</a></li>
+    <li class="nav-item"><a class="nav-link" href="#analisis">Explore</a></li>
+    <li class="nav-item"><a class="nav-link" href="#prediksi">Prediksi Power</a></li>
+    <li class="nav-item"><a class="nav-link" href="#result">Keseluruhan</a></li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="display-5 mt-5" id="training">Training </div>
+    <div class="m-2 p-3 rounded-3 shadow bg-white row">
+        <div class="d-flex flex-column gap-2 col-md-6">
+            <div class="text-uppercase"><p class="m-3 p-3 shadow">rmse : {{predict.rmse_predict}}</p></div>
+            <div class="text-uppercase"><p class="m-3 p-3 shadow">mae : {{predict.mae_predict}}</p></div>
+            <div class="text-uppercase"><p class="m-3 p-3 shadow">mape : {{predict.mape_predict}}</p></div>
+            <div class="text-uppercase"><p class="m-3 p-3 shadow">mase : {{predict.mase_predict}}</p></div>
+        </div>
+        <div class="text-center col-md-6"><img src="/media/{{predict.id}}/power.png" height="100%" alt=""></div>
+        <img class="col-12" src="/media/{{predict.id}}/Data_Histori.png" width="100%" alt="">
+    </div>
+
+    <div class="display-5 mt-5" id="arima">Algoritma Arima</div>
+    <div class="row">
+        <div class="col text-uppercase bg-white"><p class="m-1 p-3 shadow">mse : {{predict.mse_arima}}</p></div>
+        <div class="col text-uppercase bg-white"><p class="m-1 p-3 shadow">rmse : {{predict.rmse_arima}}</p></div>
+        <div class="col text-uppercase bg-white"><p class="m-1 p-3 shadow">mae : {{predict.mae_arima}}</p></div>
+        <div class="col text-uppercase bg-white"><p class="m-1 p-3 shadow">mape : {{predict.mape_arima}}</p></div>
+        <div class="col text-uppercase bg-white"><p class="m-1 p-3 shadow">mase : {{predict.mase_arima}}</p></div>
+    </div>
+    <div class="m-2 p-3 rounded-3 shadow bg-white">
+        <h4>Train Test</h4>
+        <div class="text-center"><img src="/media/{{predict.id}}/arima_predict.png" width="100%" alt=""></div>
+        <h4>Actual</h4>
+        <img src="/media/{{predict.id}}/arima.png" width="100%" alt="">
+    </div>
+
+    <div class="display-5 mt-5" id="analisis">EXPLORATORY DATA ANALYSIS</div>
+    <div class=" bg-white shadow rounded-3 p-3">
+        <h4>Histogram</h4><div class="text-center my-1"><img class="w-50" src="/media/{{predict.id}}/data_analyst.png" alt=""></div>
+        <h4>Pola Harian</h4><div class="text-center my-1"><img class="w-75" src="/media/{{predict.id}}/pola_harian.png" alt=""></div>
+    </div>
+
+    <div class="display-5 mt-5" id="prediksi">Prediksi Power</div>
+    <div class=" bg-white shadow rounded-3 p-3">
+        <h4>Prediksi Penggunaan</h4>
+        <div class="text-center my-1">
+            <img class="w-75" src="/media/{{predict.id}}/prediksi_penggunaan.png" alt="">
+            <img class="w-75" src="/media/{{predict.id}}/penggunaan_harian.png" alt="">
+            <img class="w-75" src="/media/{{predict.id}}/pola_harian.png" alt="">
+        </div>
+    </div>
+
+    <div class="display-5 mt-5" id="result">Keseluruhan</div>
+    <div class=" bg-white shadow rounded-3 p-3">
+        <div class="text-center my-1">
+            <img class="w-75" src="/media/{{predict.id}}/resume.png" alt="">
+            <img class="w-75" src="/media/{{predict.id}}/resampling.png" alt="">
+        </div>
+        <div class="text-center my-1">
+            <img style="width: 100%; height: 300px; object-fit: cover; object-position: -20% 0;" src="/media/{{predict.id}}/freq.png" alt="">
+            <img style="width: 100%; height: 300px; object-fit: cover; object-position: -20% 0;" src="/media/{{predict.id}}/chart.png" alt="">
+        </div>
+    </div>
+
+</div>
+{% endblock %}

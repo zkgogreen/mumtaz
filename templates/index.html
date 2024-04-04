@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    {% for predict in predict %}
+    <div class="bg-white shadow p-3 d-flex gap-2 my-2">
+        <h5 class="align-self-center col">Percobaan {{predict.id}}</h5>
+        <a href="{% url 'predict:result' id=predict.id %}" class="btn btn-primary align-self-center">Result</a>
+    </div>
+    <a href="{% url 'predict:new' %}" class="btn btn-primary">Buat Baru</a>
+    {% endfor %}
+</div>
+{% endblock content %}

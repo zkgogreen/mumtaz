@@ -1,0 +1,24 @@
+{% extend 'base.html' %}
+{% block main %}
+<div class="container mt-5">
+    {% if mse %}
+    <div class="row">
+        <div class="col-md-5">
+            <div class="my-4 p-5">
+                <div class="h5 text-uppercase">mse : {{mse}} <br></div>
+                <div class="h5 text-uppercase">rmse : {{rmse}} <br></div>
+                <div class="h5 text-uppercase">mae : {{mae}} <br></div>
+                <div class="h5 text-uppercase">mape : {{mape}} <br></div>
+                <div class="h5 text-uppercase">mase : {{mase}} <br></div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <img src="/media/arima.png" width="100%" alt="">
+        </div>
+        <div class="col-12">
+            <img src="/media/arima_predict.png" width="100%" alt="">
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-5">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="csf_file" class="form-label">Upload CSV File</label>
+            <input class="form-control" name="file" type="file" id="csf_file">
+        </div>
+        <div class="mb-3">
+            <label for="windows_size" class="form-label">Windows Size</label>
+            <input type="number" class="form-control" name="windows_size" id="windows_size" placeholder="Input Windows Size" value="24">
+        </div>
+        <div class="mb-3">
+            <label for="epochs" class="form-label">Epochs</label>
+            <input type="number" class="form-control" name="epochs" id="epochs" placeholder="Input epochs" value="50">
+        </div>
+        <div class="mb-3">
+            <label for="batch_size" class="form-label">Batch size</label>
+            <input type="number" class="form-control" name="batch_size" id="batch_size" placeholder="Input Batch size" value="4000">
+        </div>
+        <button type="submit" class="btn btn-primary">Process</button>
+    </form>
+</div>
+{% endblock %}
